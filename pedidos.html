@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Meus pedidos | Urban Store</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <style>
+
+        .orders-page {
+            padding: 80px 0 100px;
+        }
+
+        .orders-title span {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #777;
+        }
+
+        .orders-title h1 {
+            font-size: 52px;
+            margin: 18px 0;
+            line-height: 1.1;
+        }
+
+        .orders-title p {
+            font-size: 20px;
+            color: #777;
+            margin-bottom: 40px;
+        }
+
+        .orders-user-final {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 20px;
+            background: #f7f7f7;
+            border: 1px solid #e5e5e5;
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .orders-user-final i {
+            font-size: 20px;
+        }
+
+        .orders-user-final strong {
+            color: #111;
+        }
+
+        #orders-list-final {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .order-card-final {
+            border: 1px solid #ddd;
+            background: #fff;
+            padding: 28px;
+        }
+
+        .order-header-final {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-number-final {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .order-date-final {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .order-status-final {
+            background: #111;
+            color: #fff;
+            padding: 8px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .order-products-final {
+            padding: 25px 0;
+        }
+
+        .order-product-final {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-product-final:last-child {
+            border-bottom: none;
+        }
+
+        .order-product-image-final {
+            width: 100px;
+            height: 120px;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .order-product-image-final img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .order-product-info-final h3 {
+            margin: 0 0 8px;
+            font-size: 17px;
+        }
+
+        .order-product-info-final p {
+            margin: 5px 0;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .order-product-price-final {
+            text-align: right;
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        .order-footer-final {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .order-items-final {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .order-total-final {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .order-payment-final {
+            margin-top: 18px;
+            padding: 15px;
+            background: #f7f7f7;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .order-payment-final strong {
+            color: #111;
+        }
+
+        #no-orders-final {
+            display: none;
+            text-align: center;
+            padding: 70px 20px;
+            background: #f7f7f7;
+            border: 1px solid #eee;
+        }
+
+        #no-orders-final i {
+            font-size: 55px;
+            margin-bottom: 25px;
+        }
+
+        #no-orders-final h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        #no-orders-final p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .orders-buttons-final {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .orders-button-final {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px;
+            padding: 0 25px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .orders-button-primary-final {
+            background: #111;
+            color: #fff;
+        }
+
+        .orders-button-outline-final {
+            border: 1px solid #111;
+            color: #111;
+            background: #fff;
+        }
+
+        @media (max-width: 700px) {
+
+            .orders-page {
+                padding: 50px 15px 80px;
+            }
+
+            .orders-title h1 {
+                font-size: 38px;
+            }
+
+            .orders-title p {
+                font-size: 17px;
+            }
+
+            .order-header-final {
+                flex-direction: column;
+            }
+
+            .order-product-final {
+                grid-template-columns: 75px 1fr;
+            }
+
+            .order-product-image-final {
+                width: 75px;
+                height: 90px;
+            }
+
+            .order-product-price-final {
+                grid-column: 2;
+                text-align: left;
+            }
+
+            .order-footer-final {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .orders-buttons-final {
+                flex-direction: column;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <div class="container header-content">
+
+        <a
+            href="index.html"
+            class="logo"
+        >
+            URBAN<span>STORE</span>
+        </a>
+
+
+        <nav
+            class="nav"
+            id="nav"
+        >
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="produtos.html">
+                Produtos
+            </a>
+
+            <a href="produtos.html?categoria=camisetas">
+                Camisetas
+            </a>
+
+            <a href="produtos.html?categoria=calcas">
+                Calças
+            </a>
+
+            <a href="produtos.html?categoria=tenis">
+                Tênis
+            </a>
+
+            <a href="produtos.html?categoria=acessorios">
+                Acessórios
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <a
+                href="conta.html"
+                class="header-icon"
+            >
+
+                <i class="fa-regular fa-user"></i>
+
+            </a>
+
+
+            <a
+                href="carrinho.html"
+                class="header-icon cart-icon"
+            >
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                <span id="cart-count">
+                    0
+                </span>
+
+            </a>
+
+
+            <button
+                type="button"
+                class="menu-button"
+                id="menu-button"
+            >
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="orders-page">
+
+<div class="container">
+
+
+    <div class="orders-title">
+
+        <span>
+            MINHA CONTA
+        </span>
+
+        <h1>
+            Meus pedidos
+        </h1>
+
+        <p>
+            Consulte seu histórico de compras e acompanhe seus pedidos.
+        </p>
+
+    </div>
+
+
+    <div class="orders-user-final">
+
+        <i class="fa-regular fa-user"></i>
+
+        <span>
+
+            Pedidos de
+
+            <strong id="orders-user-name-final">
+                Cliente
+            </strong>
+
+        </span>
+
+    </div>
+
+
+    <div id="orders-list-final"></div>
+
+
+    <div id="no-orders-final">
+
+        <i class="fa-solid fa-box-open"></i>
+
+        <h2>
+            Nenhum pedido encontrado
+        </h2>
+
+        <p>
+            Você ainda não realizou nenhuma compra.
+        </p>
+
+        <a
+            href="produtos.html"
+            class="orders-button-final orders-button-primary-final"
+        >
+            Ver produtos
+        </a>
+
+    </div>
+
+
+    <div class="orders-buttons-final">
+
+        <a
+            href="conta.html"
+            class="orders-button-final orders-button-outline-final"
+        >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            &nbsp;
+
+            Voltar para minha conta
+
+        </a>
+
+
+        <a
+            href="produtos.html"
+            class="orders-button-final orders-button-primary-final"
+        >
+
+            Continuar comprando
+
+        </a>
+
+    </div>
+
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div>
+
+                <a
+                    href="index.html"
+                    class="logo footer-logo"
+                >
+                    URBAN<span>STORE</span>
+                </a>
+
+                <p>
+                    Seu estilo. Sua identidade.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Loja
+                </h3>
+
+                <a href="produtos.html">
+                    Produtos
+                </a>
+
+                <a href="pedidos.html">
+                    Meus pedidos
+                </a>
+
+                <a href="conta.html">
+                    Minha conta
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h3>
+                    Atendimento
+                </h3>
+
+                <a href="#">
+                    Fale conosco
+                </a>
+
+                <a href="#">
+                    Política de troca
+                </a>
+
+                <a href="#">
+                    Entrega
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Urban Store.
+                Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        const ordersList =
+            document.getElementById(
+                "orders-list-final"
+            );
+
+
+        const noOrders =
+            document.getElementById(
+                "no-orders-final"
+            );
+
+
+        const userNameElement =
+            document.getElementById(
+                "orders-user-name-final"
+            );
+
+
+        /* ==========================================
+           USUÁRIO
+        ========================================== */
+
+        let currentUser = null;
+
+        try {
+
+            currentUser =
+                JSON.parse(
+                    localStorage.getItem(
+                        "urbanUser"
+                    ) || "null"
+                );
+
+        } catch {
+
+            currentUser = null;
+
+        }
+
+
+        const currentUserName =
+            String(
+                currentUser?.name ||
+                currentUser?.nome ||
+                currentUser?.username ||
+                "Cliente"
+            ).trim();
+
+
+        const currentUserEmail =
+            String(
+                currentUser?.email ||
+                ""
+            )
+            .trim()
+            .toLowerCase();
+
+
+        if (userNameElement) {
+
+            userNameElement.textContent =
+                currentUserName;
+
+        }
+
+
+        /* ==========================================
+           PEDIDOS
+        ========================================== */
+
+        let allOrders = [];
+
+        try {
+
+            allOrders =
+                JSON.parse(
+                    localStorage.getItem(
+                        "urbanOrders"
+                    ) || "[]"
+                );
+
+        } catch {
+
+            allOrders = [];
+
+        }
+
+
+        if (!Array.isArray(allOrders)) {
+
+            allOrders = [];
+
+        }
+
+
+        /* ==========================================
+           MEUS PEDIDOS
+        ========================================== */
+
+        const myOrders =
+            allOrders.filter(
+                function (order) {
+
+                    const orderEmail =
+                        String(
+                            order.userEmail ||
+                            order.email ||
+                            order.customer?.email ||
+                            ""
+                        )
+                        .trim()
+                        .toLowerCase();
+
+
+                    const orderName =
+                        String(
+                            order.userName ||
+                            order.name ||
+                            order.customer?.name ||
+                            ""
+                        )
+                        .trim()
+                        .toLowerCase();
+
+
+                    return (
+
+                        (
+                            currentUserEmail &&
+                            orderEmail ===
+                            currentUserEmail
+                        )
+
+                        ||
+
+                        (
+                            currentUserName &&
+                            orderName ===
+                            currentUserName.toLowerCase()
+                        )
+
+                    );
+
+                }
+            );
+
+
+        /* ==========================================
+           NENHUM PEDIDO
+        ========================================== */
+
+        if (!myOrders.length) {
+
+            ordersList.innerHTML = "";
+
+            ordersList.style.display =
+                "none";
+
+            noOrders.style.display =
+                "block";
+
+            return;
+
+        }
+
+
+        ordersList.style.display =
+            "flex";
+
+        noOrders.style.display =
+            "none";
+
+
+        /* ==========================================
+           CATÁLOGO
+        ========================================== */
+
+        /*
+         * Aqui usamos a função getProductById()
+         * que já existe no seu script.js.
+         *
+         * Isso resolve os pedidos antigos que
+         * possuem somente ID + quantidade.
+         */
+
+
+        let html = "";
+
+
+        myOrders
+            .slice()
+            .reverse()
+            .forEach(
+                function (order) {
+
+
+                    const products =
+                        Array.isArray(order.items)
+                            ? order.items
+                            : Array.isArray(order.products)
+                                ? order.products
+                                : [];
+
+
+                    let productsHTML = "";
+
+                    let totalItems = 0;
+
+
+                    products.forEach(
+                        function (item) {
+
+
+                            /*
+                             * BUSCAR PRODUTO NO CATÁLOGO
+                             */
+
+                            const catalogProduct =
+                                typeof getProductById === "function"
+                                    ? getProductById(item.id)
+                                    : null;
+
+
+                            /*
+                             * DADOS DO PRODUTO
+                             */
+
+                            const productName =
+                                item.name ||
+                                catalogProduct?.name ||
+                                "Produto";
+
+
+                            const productImage =
+                                item.image ||
+                                catalogProduct?.image ||
+                                "img/produto.jpg";
+
+
+                            const productPrice =
+                                Number(
+                                    item.price ??
+                                    catalogProduct?.price ??
+                                    0
+                                );
+
+
+                            const quantity =
+                                Number(
+                                    item.quantity
+                                ) || 1;
+
+
+                            const itemTotal =
+                                productPrice *
+                                quantity;
+
+
+                            totalItems +=
+                                quantity;
+
+
+                            const size =
+                                item.size ||
+                                "";
+
+
+                            productsHTML += `
+
+                                <div
+                                    class="order-product-final"
+                                >
+
+
+                                    <div
+                                        class="order-product-image-final"
+                                    >
+
+                                        <img
+                                            src="${productImage}"
+                                            alt="${productName}"
+                                            onerror="
+                                                this.onerror=null;
+                                                this.src='${catalogProduct?.image || "img/produto.jpg"}';
+                                            "
+                                        >
+
+                                    </div>
+
+
+                                    <div
+                                        class="order-product-info-final"
+                                    >
+
+                                        <h3>
+                                            ${productName}
+                                        </h3>
+
+
+                                        <p>
+                                            Quantidade:
+                                            ${quantity}
+                                        </p>
+
+
+                                        ${
+                                            size
+                                                ? `
+                                                    <p>
+                                                        Tamanho:
+                                                        ${size}
+                                                    </p>
+                                                `
+                                                : ""
+                                        }
+
+
+                                        <p>
+                                            Preço:
+                                            ${formatMoney(
+                                                productPrice
+                                            )}
+                                        </p>
+
+                                    </div>
+
+
+                                    <div
+                                        class="order-product-price-final"
+                                    >
+
+                                        ${formatMoney(
+                                            itemTotal
+                                        )}
+
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        }
+                    );
+
+
+                    /* ==================================
+                       VALORES
+                    ================================== */
+
+                    const subtotal =
+                        Number(
+                            order.subtotal
+                        ) || 0;
+
+
+                    const shipping =
+                        Number(
+                            order.shipping
+                        ) || 0;
+
+
+                    let total =
+                        Number(
+                            order.total
+                        ) || 0;
+
+
+                    if (!total) {
+
+                        total =
+                            subtotal +
+                            shipping;
+
+                    }
+
+
+                    /* ==================================
+                       DATA
+                    ================================== */
+
+                    const date =
+                        order.date ||
+                        "Data não informada";
+
+
+                    /* ==================================
+                       STATUS
+                    ================================== */
+
+                    const status =
+                        order.status ||
+                        "Pedido recebido";
+
+
+                    /* ==================================
+                       PAGAMENTO
+                    ================================== */
+
+                    let paymentName =
+                        order.payment ||
+                        "Não informado";
+
+
+                    if (
+                        paymentName === "card"
+                    ) {
+
+                        paymentName =
+                            "Cartão";
+
+                    }
+
+
+                    if (
+                        paymentName === "pix"
+                    ) {
+
+                        paymentName =
+                            "Pix";
+
+                    }
+
+
+                    if (
+                        paymentName === "boleto"
+                    ) {
+
+                        paymentName =
+                            "Boleto";
+
+                    }
+
+
+                    /* ==================================
+                       PEDIDO
+                    ================================== */
+
+                    html += `
+
+                        <article
+                            class="order-card-final"
+                        >
+
+
+                            <div
+                                class="order-header-final"
+                            >
+
+                                <div>
+
+                                    <div
+                                        class="order-number-final"
+                                    >
+
+                                        Pedido
+                                        #${order.id || "URBAN"}
+
+                                    </div>
+
+
+                                    <div
+                                        class="order-date-final"
+                                    >
+
+                                        Realizado em:
+                                        ${date}
+
+                                    </div>
+
+                                </div>
+
+
+                                <div
+                                    class="order-status-final"
+                                >
+
+                                    ${status}
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="order-products-final"
+                            >
+
+                                ${productsHTML}
+
+                            </div>
+
+
+                            <div
+                                class="order-footer-final"
+                            >
+
+                                <div
+                                    class="order-items-final"
+                                >
+
+                                    ${totalItems}
+
+                                    ${
+                                        totalItems === 1
+                                            ? "item"
+                                            : "itens"
+                                    }
+
+                                </div>
+
+
+                                <div
+                                    class="order-total-final"
+                                >
+
+                                    Total:
+                                    ${formatMoney(total)}
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="order-payment-final"
+                            >
+
+                                Forma de pagamento:
+
+                                <strong>
+                                    ${paymentName}
+                                </strong>
+
+                            </div>
+
+
+                        </article>
+
+                    `;
+
+                }
+            );
+
+
+        ordersList.innerHTML =
+            html;
+
+
+        /* ==========================================
+           FORMATAÇÃO DE DINHEIRO
+        ========================================== */
+
+        function formatMoney(value) {
+
+            return Number(
+                value || 0
+            ).toLocaleString(
+                "pt-BR",
+                {
+                    style: "currency",
+                    currency: "BRL"
+                }
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

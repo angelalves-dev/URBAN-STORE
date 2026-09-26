@@ -1,0 +1,1783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Produtos | Urban Store</title>
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        /* =========================================
+           PÁGINA
+        ========================================= */
+
+        .products-page {
+            padding: 60px 0 100px;
+        }
+
+        .products-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .products-title h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .products-title p {
+            color: #777;
+        }
+
+
+        /* =========================================
+           FILTROS
+        ========================================= */
+
+        .products-filter-area {
+
+            max-width: 1120px;
+
+            margin: 0 auto 25px;
+
+            padding: 22px;
+
+            background: #f5f5f5;
+
+            display: grid;
+
+            grid-template-columns:
+                2fr 1fr 1fr 1fr;
+
+            gap: 15px;
+
+            border-radius: 8px;
+
+        }
+
+
+        .search-box {
+            position: relative;
+        }
+
+
+        .search-box input {
+
+            width: 100%;
+
+            height: 50px;
+
+            border: 1px solid #ccc;
+
+            background: #fff;
+
+            padding: 0 45px 0 15px;
+
+            box-sizing: border-box;
+
+            outline: none;
+
+            transition: .2s;
+
+        }
+
+
+        .search-box input:focus {
+
+            border-color: #111;
+
+            box-shadow:
+                0 0 0 2px rgba(0,0,0,.08);
+
+        }
+
+
+        .search-box i {
+
+            position: absolute;
+
+            right: 15px;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            color: #111;
+
+        }
+
+
+        .filter-field {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 6px;
+
+        }
+
+
+        .filter-field label {
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            color: #555;
+
+        }
+
+
+        .filter-field select {
+
+            width: 100%;
+
+            height: 50px;
+
+            border: 1px solid #ccc;
+
+            background: #fff;
+
+            padding: 0 10px;
+
+            outline: none;
+
+            cursor: pointer;
+
+            transition: .2s;
+
+        }
+
+
+        .filter-field select:hover,
+
+        .filter-field select:focus {
+
+            border-color: #111;
+
+        }
+
+
+        /* =========================================
+           CONTADOR
+        ========================================= */
+
+        .products-count {
+
+            max-width: 1120px;
+
+            margin: 0 auto 25px;
+
+            font-size: 14px;
+
+            color: #555;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =========================================
+           GRID
+        ========================================= */
+
+        #products-grid {
+
+            max-width: 1120px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        /* =========================================
+           CARD
+        ========================================= */
+
+        .urban-product-card {
+
+            min-width: 0;
+
+        }
+
+
+        .urban-product-image {
+
+            width: 100%;
+
+            aspect-ratio: 4 / 5;
+
+            overflow: hidden;
+
+            background: #f3f3f3;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .urban-product-image img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition:
+                transform .3s ease;
+
+        }
+
+
+        .urban-product-card:hover
+        .urban-product-image img {
+
+            transform:
+                scale(1.04);
+
+        }
+
+
+        .urban-product-category {
+
+            display: block;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            color: #777;
+
+            margin-bottom: 7px;
+
+            font-weight: 600;
+
+        }
+
+
+        .urban-product-name {
+
+            margin: 0 0 8px;
+
+            font-size: 17px;
+
+            line-height: 1.3;
+
+        }
+
+
+        .urban-product-description {
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            color: #777;
+
+            margin: 0 0 15px;
+
+            min-height: 40px;
+
+        }
+
+
+        .urban-product-bottom {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+
+        .urban-product-price {
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            margin-right: auto;
+
+        }
+
+
+        /* =========================================
+           BOTÃO VER PRODUTO
+        ========================================= */
+
+        .urban-product-view {
+
+            height: 40px;
+
+            padding: 0 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border: 2px solid #111;
+
+            color: #111;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            background: #fff;
+
+            border-radius: 5px;
+
+            transition: .2s;
+
+        }
+
+
+        .urban-product-view:hover {
+
+            background: #111;
+
+            color: #fff;
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        /* =========================================
+           BOTÃO CARRINHO
+        ========================================= */
+
+        .urban-product-cart {
+
+            width: 42px;
+
+            height: 42px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: #111;
+
+            color: #fff;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 15px;
+
+            box-shadow:
+                0 3px 8px rgba(0,0,0,.18);
+
+            transition: .2s;
+
+        }
+
+
+        .urban-product-cart:hover {
+
+            background: #333;
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+                0 5px 12px rgba(0,0,0,.25);
+
+        }
+
+
+        /* =========================================
+           SEM PRODUTOS
+        ========================================= */
+
+        #no-products {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 70px 20px;
+
+        }
+
+
+        #no-products h2 {
+
+            margin-bottom: 10px;
+
+        }
+
+
+        #no-products p {
+
+            color: #777;
+
+        }
+
+
+        /* =========================================
+           RESPONSIVO
+        ========================================= */
+
+        @media (max-width: 1000px) {
+
+            #products-grid {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 750px) {
+
+            .products-filter-area {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            #products-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 18px;
+
+            }
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .products-title h1 {
+
+                font-size: 36px;
+
+            }
+
+
+            .products-filter-area {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            #products-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 14px;
+
+            }
+
+
+            .urban-product-description {
+
+                display: none;
+
+            }
+
+
+            .urban-product-view {
+
+                padding: 0 9px;
+
+                font-size: 10px;
+
+            }
+
+
+            .urban-product-name {
+
+                font-size: 14px;
+
+            }
+
+
+            .urban-product-price {
+
+                font-size: 14px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header class="header">
+
+        <div class="container header-content">
+
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                URBAN<span>STORE</span>
+            </a>
+
+
+            <nav
+                class="nav"
+                id="nav"
+            >
+
+                <a href="index.html">
+                    Início
+                </a>
+
+                <a href="produtos.html">
+                    Produtos
+                </a>
+
+                <a href="produtos.html?categoria=camisetas">
+                    Camisetas
+                </a>
+
+                <a href="produtos.html?categoria=calcas">
+                    Calças
+                </a>
+
+                <a href="produtos.html?categoria=tenis">
+                    Tênis
+                </a>
+
+                <a href="produtos.html?categoria=acessorios">
+                    Acessórios
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+
+                <a
+                    href="login.html"
+                    class="header-icon account-link"
+                >
+
+                    <i class="fa-regular fa-user"></i>
+
+                </a>
+
+
+                <a
+                    href="carrinho.html"
+                    class="header-icon cart-icon"
+                >
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span id="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="menu-button"
+                    id="menu-button"
+                >
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         PRODUTOS
+    ========================================= -->
+
+    <main class="products-page">
+
+        <div class="container">
+
+
+            <div class="products-title">
+
+                <h1>
+                    Produtos
+                </h1>
+
+                <p>
+                    Encontre seu próximo estilo.
+                </p>
+
+            </div>
+
+
+            <!-- =====================================
+                 FILTROS
+            ====================================== -->
+
+            <div class="products-filter-area">
+
+
+                <!-- BUSCA -->
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="product-search"
+                        placeholder="Buscar produto..."
+                    >
+
+                    <i
+                        class="fa-solid fa-magnifying-glass"
+                    ></i>
+
+                </div>
+
+
+                <!-- CATEGORIA -->
+
+                <div class="filter-field">
+
+                    <label for="category-filter">
+                        Categoria
+                    </label>
+
+                    <select id="category-filter">
+
+                        <option value="todos">
+                            Todas
+                        </option>
+
+                        <option value="camisetas">
+                            Camisetas
+                        </option>
+
+                        <option value="calcas">
+                            Calças
+                        </option>
+
+                        <option value="tenis">
+                            Tênis
+                        </option>
+
+                        <option value="acessorios">
+                            Acessórios
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- PREÇO -->
+
+                <div class="filter-field">
+
+                    <label for="price-filter">
+                        Preço
+                    </label>
+
+                    <select id="price-filter">
+
+                        <option value="todos">
+                            Todos
+                        </option>
+
+                        <option value="0-100">
+                            Até R$ 100
+                        </option>
+
+                        <option value="100-200">
+                            R$ 100 - R$ 200
+                        </option>
+
+                        <option value="200">
+                            Acima de R$ 200
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- ORDENAR -->
+
+                <div class="filter-field">
+
+                    <label for="sort-filter">
+                        Ordenar
+                    </label>
+
+                    <select id="sort-filter">
+
+                        <option value="default">
+                            Padrão
+                        </option>
+
+                        <option value="price-low">
+                            Menor preço
+                        </option>
+
+                        <option value="price-high">
+                            Maior preço
+                        </option>
+
+                        <option value="name">
+                            Nome A-Z
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =====================================
+                 CONTADOR
+            ====================================== -->
+
+            <div
+                id="products-count"
+                class="products-count"
+            >
+                Carregando produtos...
+            </div>
+
+
+            <!-- =====================================
+                 GRID
+            ====================================== -->
+
+            <div id="products-grid"></div>
+
+
+            <!-- =====================================
+                 SEM PRODUTOS
+            ====================================== -->
+
+            <div id="no-products">
+
+                <h2>
+                    Nenhum produto encontrado
+                </h2>
+
+                <p>
+                    Tente mudar os filtros ou a busca.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+
+                <div>
+
+                    <a
+                        href="index.html"
+                        class="logo"
+                    >
+                        URBAN<span>STORE</span>
+                    </a>
+
+                    <p>
+                        Seu estilo. Sua identidade.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="produtos.html">
+                        Produtos
+                    </a>
+
+                    <a href="pedidos.html">
+                        Meus pedidos
+                    </a>
+
+                    <a href="conta.html">
+                        Minha conta
+                    </a>
+
+                    <a href="carrinho.html">
+                        Carrinho
+                    </a>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Urban Store.
+                    Todos os direitos reservados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         SCRIPT PRINCIPAL
+    ========================================= -->
+
+    <script src="js/script.js"></script>
+
+
+    <!-- =========================================
+         FILTROS DA PÁGINA
+    ========================================= -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+
+                const grid =
+                    document.getElementById(
+                        "products-grid"
+                    );
+
+
+                const searchInput =
+                    document.getElementById(
+                        "product-search"
+                    );
+
+
+                const categoryFilter =
+                    document.getElementById(
+                        "category-filter"
+                    );
+
+
+                const priceFilter =
+                    document.getElementById(
+                        "price-filter"
+                    );
+
+
+                const sortFilter =
+                    document.getElementById(
+                        "sort-filter"
+                    );
+
+
+                const productsCount =
+                    document.getElementById(
+                        "products-count"
+                    );
+
+
+                const noProducts =
+                    document.getElementById(
+                        "no-products"
+                    );
+
+
+                /* =====================================
+                   PRODUTOS PADRÃO
+                ====================================== */
+
+                const defaultProducts = [
+
+                    {
+                        id: 1,
+                        name: "Camiseta Basic Black",
+                        price: 79.90,
+                        category: "camisetas",
+                        image: "img/camiseta-basic-black.jpg",
+                        description:
+                            "Camiseta preta com design minimalista e confortável."
+                    },
+
+                    {
+                        id: 2,
+                        name: "Camiseta Urban White",
+                        price: 79.90,
+                        category: "camisetas",
+                        image: "img/camiseta-urban-white.jpg",
+                        description:
+                            "Camiseta branca para um visual moderno."
+                    },
+
+                    {
+                        id: 3,
+                        name: "Camiseta Oversized Gray",
+                        price: 99.90,
+                        category: "camisetas",
+                        image: "img/camiseta-oversized-gray.jpg",
+                        description:
+                            "Modelagem oversized com estilo urbano."
+                    },
+
+                    {
+                        id: 4,
+                        name: "Calça Jeans Classic",
+                        price: 159.90,
+                        category: "calcas",
+                        image: "img/calca-jeans-classic.jpg",
+                        description:
+                            "Calça jeans clássica para qualquer ocasião."
+                    },
+
+                    {
+                        id: 5,
+                        name: "Calça Cargo Urban",
+                        price: 179.90,
+                        category: "calcas",
+                        image: "img/calca-cargo-urban.jpg",
+                        description:
+                            "Calça cargo com visual streetwear."
+                    },
+
+                    {
+                        id: 6,
+                        name: "Calça Jogger Black",
+                        price: 149.90,
+                        category: "calcas",
+                        image: "img/calca-jogger-black.jpg",
+                        description:
+                            "Jogger preta confortável e versátil."
+                    },
+
+                    {
+                        id: 7,
+                        name: "Urban Runner",
+                        price: 299.90,
+                        category: "tenis",
+                        image: "img/urban-runner.jpg",
+                        description:
+                            "Tênis urbano com design moderno."
+                    },
+
+                    {
+                        id: 8,
+                        name: "Street Classic",
+                        price: 279.90,
+                        category: "tenis",
+                        image: "img/street-classic.jpg",
+                        description:
+                            "Tênis clássico para composições urbanas."
+                    },
+
+                    {
+                        id: 9,
+                        name: "Sport Motion",
+                        price: 349.90,
+                        category: "tenis",
+                        image: "img/sport-motion.jpg",
+                        description:
+                            "Tênis esportivo com visual moderno."
+                    },
+
+                    {
+                        id: 10,
+                        name: "Boné Urban",
+                        price: 69.90,
+                        category: "acessorios",
+                        image: "img/bone-urban.jpg",
+                        description:
+                            "Boné minimalista para completar o visual."
+                    },
+
+                    {
+                        id: 11,
+                        name: "Mochila Street",
+                        price: 129.90,
+                        category: "acessorios",
+                        image: "img/mochila-street.jpg",
+                        description:
+                            "Mochila urbana prática e resistente."
+                    },
+
+                    {
+                        id: 12,
+                        name: "Relógio Classic",
+                        price: 199.90,
+                        category: "acessorios",
+                        image: "img/relogio-classic.jpg",
+                        description:
+                            "Relógio clássico com design sofisticado."
+                    }
+
+                ];
+
+
+                /* =====================================
+                   CARREGA PRODUTOS
+                ====================================== */
+
+                function getProducts() {
+
+                    try {
+
+                        const saved =
+                            JSON.parse(
+                                localStorage.getItem(
+                                    "urbanProducts"
+                                )
+                            );
+
+
+                        if (
+                            Array.isArray(saved) &&
+                            saved.length > 0
+                        ) {
+
+                            return saved;
+
+                        }
+
+                    }
+
+                    catch (error) {
+
+                        console.error(
+                            "Erro ao carregar produtos:",
+                            error
+                        );
+
+                    }
+
+
+                    return defaultProducts;
+
+                }
+
+
+                let allProducts =
+                    getProducts();
+
+
+                /* =====================================
+                   MOEDA
+                ====================================== */
+
+                function formatPrice(price) {
+
+                    return Number(price || 0)
+                        .toLocaleString(
+                            "pt-BR",
+                            {
+                                style: "currency",
+                                currency: "BRL"
+                            }
+                        );
+
+                }
+
+
+                /* =====================================
+                   CATEGORIA
+                ====================================== */
+
+                function normalizeCategory(
+                    category
+                ) {
+
+                    return String(
+                        category || ""
+                    )
+                        .toLowerCase()
+                        .normalize("NFD")
+                        .replace(
+                            /[\u0300-\u036f]/g,
+                            ""
+                        )
+                        .replace(
+                            /\s+/g,
+                            ""
+                        );
+
+                }
+
+
+                /* =====================================
+                   RENDERIZA PRODUTOS
+                ====================================== */
+
+                function renderProducts() {
+
+                    const search =
+                        searchInput.value
+                            .trim()
+                            .toLowerCase();
+
+
+                    const category =
+                        categoryFilter.value;
+
+
+                    const price =
+                        priceFilter.value;
+
+
+                    const sort =
+                        sortFilter.value;
+
+
+                    let filtered =
+                        allProducts.filter(
+                            function (product) {
+
+
+                                const name =
+                                    String(
+                                        product.name || ""
+                                    ).toLowerCase();
+
+
+                                const description =
+                                    String(
+                                        product.description || ""
+                                    ).toLowerCase();
+
+
+                                const productCategory =
+                                    normalizeCategory(
+                                        product.category
+                                    );
+
+
+                                const searchMatch =
+                                    !search ||
+                                    name.includes(search) ||
+                                    description.includes(search);
+
+
+                                const categoryMatch =
+                                    category === "todos" ||
+                                    productCategory ===
+                                        normalizeCategory(category);
+
+
+                                let priceMatch = true;
+
+
+                                const productPrice =
+                                    Number(
+                                        product.price || 0
+                                    );
+
+
+                                if (
+                                    price === "0-100"
+                                ) {
+
+                                    priceMatch =
+                                        productPrice <= 100;
+
+                                }
+
+                                else if (
+                                    price === "100-200"
+                                ) {
+
+                                    priceMatch =
+                                        productPrice > 100 &&
+                                        productPrice <= 200;
+
+                                }
+
+                                else if (
+                                    price === "200"
+                                ) {
+
+                                    priceMatch =
+                                        productPrice > 200;
+
+                                }
+
+
+                                return (
+                                    searchMatch &&
+                                    categoryMatch &&
+                                    priceMatch
+                                );
+
+                            }
+                        );
+
+
+                    /* =================================
+                       ORDENAÇÃO
+                    ================================== */
+
+                    if (
+                        sort === "price-low"
+                    ) {
+
+                        filtered.sort(
+                            function (a, b) {
+
+                                return (
+                                    Number(a.price) -
+                                    Number(b.price)
+                                );
+
+                            }
+                        );
+
+                    }
+
+
+                    else if (
+                        sort === "price-high"
+                    ) {
+
+                        filtered.sort(
+                            function (a, b) {
+
+                                return (
+                                    Number(b.price) -
+                                    Number(a.price)
+                                );
+
+                            }
+                        );
+
+                    }
+
+
+                    else if (
+                        sort === "name"
+                    ) {
+
+                        filtered.sort(
+                            function (a, b) {
+
+                                return String(
+                                    a.name
+                                ).localeCompare(
+                                    String(b.name),
+                                    "pt-BR"
+                                );
+
+                            }
+                        );
+
+                    }
+
+
+                    /* =================================
+                       CONTADOR
+                    ================================== */
+
+                    productsCount.textContent =
+                        filtered.length === 1
+                            ? "1 produto encontrado"
+                            : `${filtered.length} produtos encontrados`;
+
+
+                    /* =================================
+                       NENHUM PRODUTO
+                    ================================== */
+
+                    if (
+                        filtered.length === 0
+                    ) {
+
+                        grid.innerHTML = "";
+
+                        noProducts.style.display =
+                            "block";
+
+                        return;
+
+                    }
+
+
+                    noProducts.style.display =
+                        "none";
+
+
+                    /* =================================
+                       CARDS
+                    ================================== */
+
+                    grid.innerHTML =
+                        filtered.map(
+                            function (product) {
+
+                                const productId =
+                                    product.id ??
+                                    product.name;
+
+
+                                return `
+
+                                    <article
+                                        class="urban-product-card"
+                                    >
+
+                                        <div
+                                            class="urban-product-image"
+                                        >
+
+                                            <img
+                                                src="${product.image || ""}"
+                                                alt="${product.name}"
+                                                onerror="this.style.opacity='0.3'"
+                                            >
+
+                                        </div>
+
+
+                                        <span
+                                            class="urban-product-category"
+                                        >
+                                            ${product.category || ""}
+                                        </span>
+
+
+                                        <h3
+                                            class="urban-product-name"
+                                        >
+                                            ${product.name}
+                                        </h3>
+
+
+                                        <p
+                                            class="urban-product-description"
+                                        >
+                                            ${product.description || ""}
+                                        </p>
+
+
+                                        <div
+                                            class="urban-product-bottom"
+                                        >
+
+                                            <strong
+                                                class="urban-product-price"
+                                            >
+                                                ${formatPrice(product.price)}
+                                            </strong>
+
+
+                                            <a
+                                                class="urban-product-view"
+                                                href="produto.html?id=${encodeURIComponent(productId)}"
+                                            >
+                                                Ver produto
+                                            </a>
+
+
+                                            <button
+                                                type="button"
+                                                class="urban-product-cart"
+                                                data-product-id="${productId}"
+                                                title="Adicionar ao carrinho"
+                                            >
+
+                                                <i
+                                                    class="fa-solid fa-plus"
+                                                ></i>
+
+                                            </button>
+
+                                        </div>
+
+                                    </article>
+
+                                `;
+
+                            }
+                        ).join("");
+
+
+                    /* =================================
+                       BOTÕES CARRINHO
+                    ================================== */
+
+                    const cartButtons =
+                        document.querySelectorAll(
+                            ".urban-product-cart"
+                        );
+
+
+                    cartButtons.forEach(
+                        function (button) {
+
+                            button.addEventListener(
+                                "click",
+                                function () {
+
+                                    const id =
+                                        button.dataset
+                                            .productId;
+
+
+                                    const product =
+                                        allProducts.find(
+                                            function (item) {
+
+                                                return String(
+                                                    item.id
+                                                ) === String(id);
+
+                                            }
+                                        );
+
+
+                                    if (!product) {
+
+                                        return;
+
+                                    }
+
+
+                                    let cart =
+                                        JSON.parse(
+                                            localStorage.getItem(
+                                                "urbanCart"
+                                            )
+                                        ) || [];
+
+
+                                    const existing =
+                                        cart.find(
+                                            function (item) {
+
+                                                return (
+                                                    String(
+                                                        item.id ||
+                                                        item.productId ||
+                                                        item.name
+                                                    ) ===
+                                                    String(
+                                                        product.id ||
+                                                        product.name
+                                                    )
+                                                );
+
+                                            }
+                                        );
+
+
+                                    if (existing) {
+
+                                        existing.quantity =
+                                            Number(
+                                                existing.quantity || 0
+                                            ) + 1;
+
+                                    }
+
+                                    else {
+
+                                        cart.push({
+
+                                            id:
+                                                product.id,
+
+                                            name:
+                                                product.name,
+
+                                            price:
+                                                Number(
+                                                    product.price
+                                                ),
+
+                                            quantity:
+                                                1,
+
+                                            size:
+                                                "M",
+
+                                            image:
+                                                product.image
+
+                                        });
+
+                                    }
+
+
+                                    localStorage.setItem(
+                                        "urbanCart",
+                                        JSON.stringify(cart)
+                                    );
+
+
+                                    /* Atualiza contador */
+
+                                    const cartCount =
+                                        document.getElementById(
+                                            "cart-count"
+                                        );
+
+
+                                    if (cartCount) {
+
+                                        let total = 0;
+
+
+                                        cart.forEach(
+                                            function (item) {
+
+                                                total +=
+                                                    Number(
+                                                        item.quantity || 0
+                                                    );
+
+                                            }
+                                        );
+
+
+                                        cartCount.textContent =
+                                            total;
+
+                                    }
+
+
+                                    /* Feedback */
+
+                                    button.innerHTML =
+                                        '<i class="fa-solid fa-check"></i>';
+
+
+                                    button.style.background =
+                                        "#555";
+
+
+                                    setTimeout(
+                                        function () {
+
+                                            button.innerHTML =
+                                                '<i class="fa-solid fa-plus"></i>';
+
+                                            button.style.background =
+                                                "#111";
+
+                                        },
+                                        900
+                                    );
+
+                                }
+                            );
+
+                        }
+                    );
+
+                }
+
+
+                /* =====================================
+                   EVENTOS DOS FILTROS
+                ====================================== */
+
+                searchInput.addEventListener(
+                    "input",
+                    renderProducts
+                );
+
+
+                categoryFilter.addEventListener(
+                    "change",
+                    renderProducts
+                );
+
+
+                priceFilter.addEventListener(
+                    "change",
+                    renderProducts
+                );
+
+
+                sortFilter.addEventListener(
+                    "change",
+                    renderProducts
+                );
+
+
+                /* =====================================
+                   CATEGORIA PELA URL
+                ====================================== */
+
+                const params =
+                    new URLSearchParams(
+                        window.location.search
+                    );
+
+
+                const categoryFromUrl =
+                    params.get(
+                        "categoria"
+                    );
+
+
+                if (
+                    categoryFromUrl
+                ) {
+
+                    const validCategories = [
+                        "camisetas",
+                        "calcas",
+                        "tenis",
+                        "acessorios"
+                    ];
+
+
+                    if (
+                        validCategories.includes(
+                            categoryFromUrl
+                        )
+                    ) {
+
+                        categoryFilter.value =
+                            categoryFromUrl;
+
+                    }
+
+                }
+
+
+                /* =====================================
+                   PRIMEIRA RENDERIZAÇÃO
+                ====================================== */
+
+                renderProducts();
+
+
+                /* =====================================
+                   CONTADOR DO CARRINHO
+                ====================================== */
+
+                const cartCount =
+                    document.getElementById(
+                        "cart-count"
+                    );
+
+
+                if (cartCount) {
+
+                    const cart =
+                        JSON.parse(
+                            localStorage.getItem(
+                                "urbanCart"
+                            )
+                        ) || [];
+
+
+                    let total = 0;
+
+
+                    cart.forEach(
+                        function (item) {
+
+                            total +=
+                                Number(
+                                    item.quantity || 0
+                                );
+
+                        }
+                    );
+
+
+                    cartCount.textContent =
+                        total;
+
+                }
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>

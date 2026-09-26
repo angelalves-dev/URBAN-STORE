@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Carrinho | Urban Store</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="container header-content">
+
+            <a href="index.html" class="logo">
+                URBAN<span>STORE</span>
+            </a>
+
+            <nav class="nav" id="nav">
+
+                <a href="index.html">
+                    Início
+                </a>
+
+                <a href="produtos.html">
+                    Produtos
+                </a>
+
+                <a href="produtos.html">
+                    Categorias
+                </a>
+
+                <a href="produtos.html">
+                    Ofertas
+                </a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <a
+                    href="conta.html"
+                    class="header-icon">
+
+                    <i class="fa-regular fa-user"></i>
+
+                </a>
+
+                <a
+                    href="carrinho.html"
+                    class="header-icon cart-icon">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span id="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+                <button
+                    class="menu-button"
+                    id="menu-button">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CARRINHO -->
+
+    <main class="cart-page">
+
+        <div class="container">
+
+
+            <div class="cart-title">
+
+                <span>
+                    SEU PEDIDO
+                </span>
+
+                <h1>
+                    Carrinho
+                </h1>
+
+                <p>
+                    Confira seus produtos antes de finalizar a compra.
+                </p>
+
+            </div>
+
+
+            <!-- CARRINHO VAZIO -->
+
+            <div
+                id="empty-cart"
+                class="empty-cart">
+
+                <div class="empty-cart-icon">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                </div>
+
+                <h2>
+                    Seu carrinho está vazio
+                </h2>
+
+                <p>
+                    Adicione alguns produtos para começar sua compra.
+                </p>
+
+                <a
+                    href="produtos.html"
+                    class="btn btn-primary">
+
+                    Ver produtos
+
+                </a>
+
+            </div>
+
+
+            <!-- CONTEÚDO -->
+
+            <div
+                id="cart-content"
+                class="cart-content">
+
+
+                <!-- PRODUTOS -->
+
+                <section class="cart-products">
+
+
+                    <div class="cart-products-header">
+
+                        <span>
+                            Produto
+                        </span>
+
+                        <span>
+                            Preço
+                        </span>
+
+                        <span>
+                            Quantidade
+                        </span>
+
+                        <span>
+                            Total
+                        </span>
+
+                    </div>
+
+
+                    <div id="cart-items">
+                    </div>
+
+
+                    <div class="cart-actions">
+
+                        <a
+                            href="produtos.html"
+                            class="btn btn-outline">
+
+                            <i class="fa-solid fa-arrow-left"></i>
+
+                            Continuar comprando
+
+                        </a>
+
+
+                        <button
+                            id="clear-cart"
+                            class="clear-cart">
+
+                            <i class="fa-solid fa-trash"></i>
+
+                            Limpar carrinho
+
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+                <!-- RESUMO -->
+
+                <aside class="cart-summary">
+
+                    <h2>
+                        Resumo
+                    </h2>
+
+
+                    <div class="summary-line">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <strong id="cart-subtotal">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-line">
+
+                        <span>
+                            Frete
+                        </span>
+
+                        <strong id="cart-shipping">
+                            R$ 19,90
+                        </strong>
+
+                    </div>
+
+
+                    <div
+                        id="free-shipping-message"
+                        class="free-shipping-message">
+
+                        Frete grátis acima de R$250
+
+                    </div>
+
+
+                    <div class="summary-total">
+
+                        <span>
+                            Total
+                        </span>
+
+                        <strong id="cart-total">
+                            R$ 0,00
+                        </strong>
+
+                    </div>
+
+
+                    <a
+                        href="checkout.html"
+                        id="checkout-button"
+                        class="btn btn-primary checkout-button">
+
+                        Finalizar compra
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </a>
+
+
+                    <div class="cart-security">
+
+                        <div>
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <span>
+                                Compra segura
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            <i class="fa-solid fa-truck"></i>
+
+                            <span>
+                                Entrega rápida
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <a
+                        href="index.html"
+                        class="logo">
+
+                        URBAN<span>STORE</span>
+
+                    </a>
+
+                    <p>
+                        Seu estilo. Sua identidade.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="produtos.html">
+                        Produtos
+                    </a>
+
+                    <a href="pedidos.html">
+                        Meus pedidos
+                    </a>
+
+                    <a href="conta.html">
+                        Minha conta
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Urban Store. Todos os direitos reservados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+
+    <!-- SISTEMA DO CARRINHO -->
+
+    <script>
+
+        const cartItems =
+            document.getElementById("cart-items");
+
+        const cartContent =
+            document.getElementById("cart-content");
+
+        const emptyCart =
+            document.getElementById("empty-cart");
+
+        const cartSubtotal =
+            document.getElementById("cart-subtotal");
+
+        const cartShipping =
+            document.getElementById("cart-shipping");
+
+        const cartTotal =
+            document.getElementById("cart-total");
+
+        const freeShippingMessage =
+            document.getElementById(
+                "free-shipping-message"
+            );
+
+        const clearCartButton =
+            document.getElementById("clear-cart");
+
+
+        function formatMoney(value) {
+
+            return Number(value).toLocaleString(
+                "pt-BR",
+                {
+                    style: "currency",
+                    currency: "BRL"
+                }
+            );
+
+        }
+
+
+        function getCart() {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "urbanCart"
+                )
+            ) || [];
+
+        }
+
+
+        function saveCart(cart) {
+
+            localStorage.setItem(
+                "urbanCart",
+                JSON.stringify(cart)
+            );
+
+        }
+
+
+        function renderCart() {
+
+            const cart = getCart();
+
+
+            if (cart.length === 0) {
+
+                cartContent.style.display =
+                    "none";
+
+                emptyCart.style.display =
+                    "block";
+
+                return;
+
+            }
+
+
+            cartContent.style.display =
+                "grid";
+
+            emptyCart.style.display =
+                "none";
+
+
+            let subtotal = 0;
+
+            let html = "";
+
+
+            cart.forEach(
+                function (item, index) {
+
+                    const itemTotal =
+                        Number(item.price) *
+                        Number(item.quantity);
+
+
+                    subtotal += itemTotal;
+
+
+                    html += `
+
+                        <div class="cart-item">
+
+                            <div class="cart-product">
+
+                                <a
+                                    href="produtos.html"
+                                    class="cart-product-image">
+
+                                    <img
+                                        src="${
+                                            item.image ||
+                                            "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=300&q=80"
+                                        }"
+                                        alt="${item.name}">
+
+                                </a>
+
+
+                                <div class="cart-product-info">
+
+                                    <span>
+                                        URBAN STORE
+                                    </span>
+
+                                    <h3>
+                                        ${item.name}
+                                    </h3>
+
+                                    ${
+                                        item.size
+                                            ? `
+                                                <p>
+                                                    Tamanho:
+                                                    <strong>
+                                                        ${item.size}
+                                                    </strong>
+                                                </p>
+                                            `
+                                            : ""
+                                    }
+
+                                    <button
+                                        class="remove-item"
+                                        data-index="${index}">
+
+                                        <i class="fa-solid fa-trash"></i>
+
+                                        Remover
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="cart-item-price">
+
+                                ${formatMoney(item.price)}
+
+                            </div>
+
+
+                            <div class="cart-quantity">
+
+                                <button
+                                    class="quantity-btn"
+                                    data-action="minus"
+                                    data-index="${index}">
+
+                                    −
+
+                                </button>
+
+                                <span>
+                                    ${item.quantity}
+                                </span>
+
+                                <button
+                                    class="quantity-btn"
+                                    data-action="plus"
+                                    data-index="${index}">
+
+                                    +
+
+                                </button>
+
+                            </div>
+
+
+                            <div class="cart-item-total">
+
+                                ${formatMoney(itemTotal)}
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            );
+
+
+            cartItems.innerHTML = html;
+
+
+            let shipping = 19.90;
+
+
+            if (subtotal >= 250) {
+
+                shipping = 0;
+
+            }
+
+
+            const total =
+                subtotal + shipping;
+
+
+            cartSubtotal.textContent =
+                formatMoney(subtotal);
+
+
+            cartShipping.textContent =
+                shipping === 0
+                    ? "GRÁTIS"
+                    : formatMoney(shipping);
+
+
+            cartTotal.textContent =
+                formatMoney(total);
+
+
+            if (shipping === 0) {
+
+                freeShippingMessage.textContent =
+                    "🎉 Você ganhou frete grátis!";
+
+            } else {
+
+                const remaining =
+                    250 - subtotal;
+
+                freeShippingMessage.textContent =
+                    "Faltam " +
+                    formatMoney(remaining) +
+                    " para frete grátis.";
+
+            }
+
+
+            addCartEvents();
+
+        }
+
+
+        function addCartEvents() {
+
+
+            const quantityButtons =
+                document.querySelectorAll(
+                    ".quantity-btn"
+                );
+
+
+            quantityButtons.forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const index =
+                                Number(
+                                    button.dataset.index
+                                );
+
+                            const action =
+                                button.dataset.action;
+
+
+                            const cart =
+                                getCart();
+
+
+                            if (action === "plus") {
+
+                                cart[index].quantity++;
+
+                            }
+
+
+                            if (
+                                action === "minus"
+                            ) {
+
+                                if (
+                                    cart[index].quantity > 1
+                                ) {
+
+                                    cart[index].quantity--;
+
+                                }
+
+                            }
+
+
+                            saveCart(cart);
+
+                            renderCart();
+
+
+                            if (
+                                typeof updateCartCount ===
+                                "function"
+                            ) {
+
+                                updateCartCount();
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+            const removeButtons =
+                document.querySelectorAll(
+                    ".remove-item"
+                );
+
+
+            removeButtons.forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+
+                            const index =
+                                Number(
+                                    button.dataset.index
+                                );
+
+
+                            const cart =
+                                getCart();
+
+
+                            cart.splice(
+                                index,
+                                1
+                            );
+
+
+                            saveCart(cart);
+
+                            renderCart();
+
+
+                            if (
+                                typeof updateCartCount ===
+                                "function"
+                            ) {
+
+                                updateCartCount();
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+
+
+        clearCartButton.addEventListener(
+            "click",
+            function () {
+
+                const cart =
+                    getCart();
+
+
+                if (cart.length === 0) {
+
+                    return;
+
+                }
+
+
+                const confirmation =
+                    confirm(
+                        "Tem certeza que deseja limpar o carrinho?"
+                    );
+
+
+                if (!confirmation) {
+
+                    return;
+
+                }
+
+
+                localStorage.removeItem(
+                    "urbanCart"
+                );
+
+
+                renderCart();
+
+
+                if (
+                    typeof updateCartCount ===
+                    "function"
+                ) {
+
+                    updateCartCount();
+
+                }
+
+            }
+        );
+
+
+        renderCart();
+
+    </script>
+
+</body>
+
+</html>

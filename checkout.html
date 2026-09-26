@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | Urban Store</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+
+<header class="header">
+
+    <div class="container header-content">
+
+        <a
+            href="index.html"
+            class="logo">
+
+            URBAN<span>STORE</span>
+
+        </a>
+
+
+        <nav
+            class="nav"
+            id="nav">
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="produtos.html">
+                Produtos
+            </a>
+
+            <a href="produtos.html?categoria=camisetas">
+                Categorias
+            </a>
+
+            <a href="produtos.html?categoria=camisetas">
+                Ofertas
+            </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <a
+                href="login.html"
+                class="header-icon">
+
+                <i class="fa-regular fa-user"></i>
+
+            </a>
+
+
+            <a
+                href="carrinho.html"
+                class="header-icon cart-icon">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+                <span id="cart-count">
+                    0
+                </span>
+
+            </a>
+
+
+            <button
+                class="menu-button"
+                id="menu-button">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main class="checkout-page">
+
+    <div class="container">
+
+
+        <div class="page-title">
+
+            <h1>
+                Finalizar compra
+            </h1>
+
+            <p>
+                Confira seus dados e finalize seu pedido.
+            </p>
+
+        </div>
+
+
+        <div
+            class="checkout-layout"
+            style="
+                display:grid;
+                grid-template-columns:minmax(0,2fr) minmax(300px,1fr);
+                gap:30px;
+                align-items:start;
+            "
+        >
+
+
+            <!-- DADOS -->
+
+            <div>
+
+
+                <section class="checkout-section">
+
+                    <h2>
+                        <i class="fa-regular fa-user"></i>
+                        Dados pessoais
+                    </h2>
+
+
+                    <div
+                        style="
+                            display:grid;
+                            grid-template-columns:1fr 1fr;
+                            gap:15px;
+                        "
+                    >
+
+                        <div>
+
+                            <label for="name">
+                                Nome completo
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Seu nome"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="phone">
+                                Telefone
+                            </label>
+
+                            <input
+                                type="text"
+                                id="phone"
+                                placeholder="(92) 99999-9999"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="seuemail@email.com"
+                    >
+
+                </section>
+
+
+                <!-- ENDEREÇO -->
+
+                <section class="checkout-section">
+
+                    <h2>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Endereço
+                    </h2>
+
+
+                    <div
+                        style="
+                            display:grid;
+                            grid-template-columns:1fr 2fr;
+                            gap:15px;
+                        "
+                    >
+
+                        <div>
+
+                            <label for="cep">
+                                CEP
+                            </label>
+
+                            <input
+                                type="text"
+                                id="cep"
+                                placeholder="00000-000"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="street">
+                                Rua
+                            </label>
+
+                            <input
+                                type="text"
+                                id="street"
+                                placeholder="Nome da rua"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        style="
+                            display:grid;
+                            grid-template-columns:1fr 2fr;
+                            gap:15px;
+                        "
+                    >
+
+                        <div>
+
+                            <label for="number">
+                                Número
+                            </label>
+
+                            <input
+                                type="text"
+                                id="number"
+                                placeholder="123"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="complement">
+                                Complemento
+                            </label>
+
+                            <input
+                                type="text"
+                                id="complement"
+                                placeholder="Apartamento, bloco..."
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <label for="neighborhood">
+                        Bairro
+                    </label>
+
+                    <input
+                        type="text"
+                        id="neighborhood"
+                        placeholder="Seu bairro"
+                    >
+
+
+                    <div
+                        style="
+                            display:grid;
+                            grid-template-columns:2fr 1fr;
+                            gap:15px;
+                        "
+                    >
+
+                        <div>
+
+                            <label for="city">
+                                Cidade
+                            </label>
+
+                            <input
+                                type="text"
+                                id="city"
+                                placeholder="Sua cidade"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="state">
+                                Estado
+                            </label>
+
+                            <select id="state">
+
+                                <option value="">
+                                    Selecione
+                                </option>
+
+                                <option value="AM">
+                                    Amazonas
+                                </option>
+
+                                <option value="AC">
+                                    Acre
+                                </option>
+
+                                <option value="PA">
+                                    Pará
+                                </option>
+
+                                <option value="RO">
+                                    Rondônia
+                                </option>
+
+                                <option value="RR">
+                                    Roraima
+                                </option>
+
+                                <option value="SP">
+                                    São Paulo
+                                </option>
+
+                                <option value="RJ">
+                                    Rio de Janeiro
+                                </option>
+
+                                <option value="MG">
+                                    Minas Gerais
+                                </option>
+
+                                <option value="PR">
+                                    Paraná
+                                </option>
+
+                                <option value="SC">
+                                    Santa Catarina
+                                </option>
+
+                                <option value="RS">
+                                    Rio Grande do Sul
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- FRETE -->
+
+                <section class="checkout-section">
+
+                    <h2>
+                        <i class="fa-solid fa-truck"></i>
+                        Forma de entrega
+                    </h2>
+
+
+                    <label
+                        style="
+                            display:flex;
+                            gap:10px;
+                            align-items:center;
+                            padding:15px;
+                            border:1px solid #ddd;
+                            margin-bottom:10px;
+                            cursor:pointer;
+                        "
+                    >
+
+                        <input
+                            type="radio"
+                            name="shipping"
+                            value="19.90"
+                            checked
+                        >
+
+                        <span>
+                            Entrega padrão —
+                            R$ 19,90
+                        </span>
+
+                    </label>
+
+
+                    <label
+                        style="
+                            display:flex;
+                            gap:10px;
+                            align-items:center;
+                            padding:15px;
+                            border:1px solid #ddd;
+                            cursor:pointer;
+                        "
+                    >
+
+                        <input
+                            type="radio"
+                            name="shipping"
+                            value="0"
+                        >
+
+                        <span>
+                            Frete grátis —
+                            compras acima de R$ 250
+                        </span>
+
+                    </label>
+
+                </section>
+
+
+                <!-- PAGAMENTO -->
+
+                <section class="checkout-section">
+
+                    <h2>
+                        <i class="fa-regular fa-credit-card"></i>
+                        Forma de pagamento
+                    </h2>
+
+
+                    <label
+                        style="
+                            display:flex;
+                            align-items:center;
+                            gap:10px;
+                            padding:15px;
+                            border:1px solid #ddd;
+                            margin-bottom:10px;
+                            cursor:pointer;
+                        "
+                    >
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="card"
+                        >
+
+                        <span>
+                            Cartão de crédito
+                        </span>
+
+                    </label>
+
+
+                    <label
+                        style="
+                            display:flex;
+                            align-items:center;
+                            gap:10px;
+                            padding:15px;
+                            border:1px solid #ddd;
+                            margin-bottom:10px;
+                            cursor:pointer;
+                        "
+                    >
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="pix"
+                        >
+
+                        <span>
+                            Pix
+                        </span>
+
+                    </label>
+
+
+                    <label
+                        style="
+                            display:flex;
+                            align-items:center;
+                            gap:10px;
+                            padding:15px;
+                            border:1px solid #ddd;
+                            cursor:pointer;
+                        "
+                    >
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="boleto"
+                        >
+
+                        <span>
+                            Boleto bancário
+                        </span>
+
+                    </label>
+
+
+                    <div
+                        id="payment-details"
+                        style="margin-top:20px;"
+                    ></div>
+
+                </section>
+
+            </div>
+
+
+            <!-- RESUMO -->
+
+            <aside
+                class="checkout-summary"
+                style="
+                    position:sticky;
+                    top:20px;
+                "
+            >
+
+                <h2>
+                    Seu pedido
+                </h2>
+
+
+                <div
+                    id="checkout-items"
+                ></div>
+
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        margin-top:20px;
+                    "
+                >
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <strong id="checkout-subtotal">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        margin-top:10px;
+                    "
+                >
+
+                    <span>
+                        Frete
+                    </span>
+
+                    <strong id="checkout-shipping">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+                <hr>
+
+
+                <div
+                    style="
+                        display:flex;
+                        justify-content:space-between;
+                        margin-top:15px;
+                        font-size:20px;
+                    "
+                >
+
+                    <strong>
+                        Total
+                    </strong>
+
+                    <strong id="checkout-total">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+
+                <button
+                    id="finish-order"
+                    class="btn btn-primary"
+                    style="
+                        width:100%;
+                        margin-top:20px;
+                        padding:16px;
+                        font-size:16px;
+                    "
+                >
+
+                    Finalizar pedido
+
+                    <i
+                        class="fa-solid fa-check"
+                    ></i>
+
+                </button>
+
+
+                <a
+                    href="carrinho.html"
+                    style="
+                        display:block;
+                        text-align:center;
+                        margin-top:15px;
+                    "
+                >
+                    Voltar ao carrinho
+                </a>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer class="footer">
+
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div>
+
+                <a
+                    href="index.html"
+                    class="logo"
+                >
+                    URBAN<span>STORE</span>
+                </a>
+
+                <p>
+                    Seu estilo. Sua identidade.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Urban Store.
+                Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

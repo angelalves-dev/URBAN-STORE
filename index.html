@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Urban Store | Moda e Estilo</title>
+
+    <meta name="description"
+        content="Urban Store - Moda masculina, tênis e acessórios para seu estilo.">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="container header-content">
+
+            <a href="index.html" class="logo">
+                URBAN<span>STORE</span>
+            </a>
+
+            <nav class="nav" id="nav">
+
+                <a href="index.html" class="active">Início</a>
+                <a href="produtos.html">Produtos</a>
+                <a href="#categorias">Categorias</a>
+                <a href="#ofertas">Ofertas</a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <button class="icon-button" aria-label="Pesquisar">
+                    🔍
+                </button>
+
+                <a
+    href="login.html"
+    class="icon-link"
+    id="account-link"
+    onclick="abrirMinhaConta(event)">
+    👤
+</a>
+
+                <a href="carrinho.html" class="cart-button">
+                    🛒
+                    <span id="cart-count">0</span>
+                </a>
+
+                <button class="menu-button" id="menu-button">
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <script>
+    const accountLink = document.getElementById("account-link");
+
+    if (accountLink) {
+
+        accountLink.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const loggedUser = localStorage.getItem("urbanLoggedUser");
+
+            if (loggedUser) {
+                window.location.href = "conta.html";
+            } else {
+                window.location.href = "login.html";
+            }
+
+        }, true);
+
+    }
+</script>
+
+    <!-- ================= HERO ================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="hero-tag">
+                        NOVA COLEÇÃO 2026
+                    </span>
+
+                    <h1>
+                        Seu estilo.
+                        <br>
+                        Sua identidade.
+                    </h1>
+
+                    <p>
+                        Descubra peças modernas para transformar
+                        seu visual todos os dias.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="produtos.html" class="btn btn-primary">
+                            Comprar agora
+                        </a>
+
+                        <a href="#categorias" class="btn btn-outline">
+                            Explorar coleção
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="hero-image">
+
+                    <div class="hero-product">
+                        👟
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BENEFÍCIOS ================= -->
+
+        <section class="benefits">
+
+            <div class="container benefits-grid">
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        🚚
+                    </div>
+
+                    <div>
+                        <h3>Frete rápido</h3>
+                        <p>Envio para todo o Brasil</p>
+                    </div>
+
+                </div>
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        🔒
+                    </div>
+
+                    <div>
+                        <h3>Compra segura</h3>
+                        <p>Seus dados protegidos</p>
+                    </div>
+
+                </div>
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        💳
+                    </div>
+
+                    <div>
+                        <h3>Pagamento fácil</h3>
+                        <p>Pix, cartão e mais</p>
+                    </div>
+
+                </div>
+
+                <div class="benefit">
+
+                    <div class="benefit-icon">
+                        ↩️
+                    </div>
+
+                    <div>
+                        <h3>Troca fácil</h3>
+                        <p>Até 30 dias para trocar</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CATEGORIAS ================= -->
+
+        <section class="categories section" id="categorias">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+                        <span class="section-tag">
+                            EXPLORE
+                        </span>
+
+                        <h2>
+                            Encontre seu estilo
+                        </h2>
+                    </div>
+
+                    <a href="produtos.html" class="see-all">
+                        Ver todos →
+                    </a>
+
+                </div>
+
+
+                <div class="category-grid">
+
+                    <a href="produtos.html?categoria=camisetas"
+                        class="category-card category-black">
+
+                        <div class="category-icon">
+                            👕
+                        </div>
+
+                        <div class="category-info">
+                            <h3>Camisetas</h3>
+                            <p>Estilo para todos os dias</p>
+                        </div>
+
+                    </a>
+
+
+                    <a href="produtos.html?categoria=calcas"
+                        class="category-card category-gray">
+
+                        <div class="category-icon">
+                            👖
+                        </div>
+
+                        <div class="category-info">
+                            <h3>Calças</h3>
+                            <p>Conforto e personalidade</p>
+                        </div>
+
+                    </a>
+
+
+                    <a href="produtos.html?categoria=tenis"
+                        class="category-card category-light">
+
+                        <div class="category-icon">
+                            👟
+                        </div>
+
+                        <div class="category-info">
+                            <h3>Tênis</h3>
+                            <p>Complete seu visual</p>
+                        </div>
+
+                    </a>
+
+
+                    <a href="produtos.html?categoria=acessorios"
+                        class="category-card category-dark">
+
+                        <div class="category-icon">
+                            🧢
+                        </div>
+
+                        <div class="category-info">
+                            <h3>Acessórios</h3>
+                            <p>Detalhes que fazem diferença</p>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PRODUTOS ================= -->
+
+        <section class="products section">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <div>
+
+                        <span class="section-tag">
+                            DESTAQUES
+                        </span>
+
+                        <h2>
+                            Produtos em destaque
+                        </h2>
+
+                    </div>
+
+                    <a href="produtos.html" class="see-all">
+                        Ver todos →
+                    </a>
+
+                </div>
+
+
+                <div class="product-grid">
+
+
+                    <!-- PRODUTO 1 -->
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+
+                            <span class="product-badge">
+                                NOVO
+                            </span>
+
+                            <button class="favorite-button">
+                                ♡
+                            </button>
+
+                            <div class="product-placeholder">
+                                👕
+                            </div>
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                CAMISETAS
+                            </span>
+
+                            <h3>
+                                Camiseta Basic Black
+                            </h3>
+
+                            <div class="rating">
+                                ★★★★★
+                                <span>(12)</span>
+                            </div>
+
+                            <div class="product-bottom">
+
+                                <strong>
+                                    R$ 79,90
+                                </strong>
+
+                                <button
+                                    class="add-cart"
+                                    data-name="Camiseta Basic Black"
+                                    data-price="79.90">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 2 -->
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+
+                            <span class="product-badge sale">
+                                OFERTA
+                            </span>
+
+                            <button class="favorite-button">
+                                ♡
+                            </button>
+
+                            <div class="product-placeholder">
+                                👟
+                            </div>
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                TÊNIS
+                            </span>
+
+                            <h3>
+                                Urban Runner
+                            </h3>
+
+                            <div class="rating">
+                                ★★★★★
+                                <span>(28)</span>
+                            </div>
+
+                            <div class="product-bottom">
+
+                                <div>
+
+                                    <strong>
+                                        R$ 299,90
+                                    </strong>
+
+                                    <del>
+                                        R$ 349,90
+                                    </del>
+
+                                </div>
+
+                                <button
+                                    class="add-cart"
+                                    data-name="Urban Runner"
+                                    data-price="299.90">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 3 -->
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+
+                            <button class="favorite-button">
+                                ♡
+                            </button>
+
+                            <div class="product-placeholder">
+                                👖
+                            </div>
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                CALÇAS
+                            </span>
+
+                            <h3>
+                                Calça Cargo Urban
+                            </h3>
+
+                            <div class="rating">
+                                ★★★★★
+                                <span>(19)</span>
+                            </div>
+
+                            <div class="product-bottom">
+
+                                <strong>
+                                    R$ 179,90
+                                </strong>
+
+                                <button
+                                    class="add-cart"
+                                    data-name="Calça Cargo Urban"
+                                    data-price="179.90">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PRODUTO 4 -->
+
+                    <article class="product-card">
+
+                        <div class="product-image">
+
+                            <span class="product-badge">
+                                NOVO
+                            </span>
+
+                            <button class="favorite-button">
+                                ♡
+                            </button>
+
+                            <div class="product-placeholder">
+                                🧢
+                            </div>
+
+                        </div>
+
+                        <div class="product-info">
+
+                            <span class="product-category">
+                                ACESSÓRIOS
+                            </span>
+
+                            <h3>
+                                Boné Urban
+                            </h3>
+
+                            <div class="rating">
+                                ★★★★★
+                                <span>(8)</span>
+                            </div>
+
+                            <div class="product-bottom">
+
+                                <strong>
+                                    R$ 69,90
+                                </strong>
+
+                                <button
+                                    class="add-cart"
+                                    data-name="Boné Urban"
+                                    data-price="69.90">
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= OFERTA ================= -->
+
+        <section class="offer section" id="ofertas">
+
+            <div class="container">
+
+                <div class="offer-content">
+
+                    <div>
+
+                        <span class="section-tag">
+                            OFERTA ESPECIAL
+                        </span>
+
+                        <h2>
+                            Até 30% OFF
+                        </h2>
+
+                        <p>
+                            Aproveite nossas ofertas especiais
+                            por tempo limitado.
+                        </p>
+
+                        <a href="produtos.html" class="btn btn-primary">
+                            Aproveitar oferta
+                        </a>
+
+                    </div>
+
+                    <div class="offer-number">
+                        30%
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= NEWSLETTER ================= -->
+
+        <section class="newsletter section">
+
+            <div class="container">
+
+                <div class="newsletter-content">
+
+                    <span class="section-tag">
+                        FIQUE POR DENTRO
+                    </span>
+
+                    <h2>
+                        Receba nossas novidades
+                    </h2>
+
+                    <p>
+                        Cadastre seu e-mail e receba ofertas
+                        exclusivas.
+                    </p>
+
+                    <form id="newsletter-form">
+
+                        <input
+                            type="email"
+                            id="newsletter-email"
+                            placeholder="Seu melhor e-mail"
+                            required>
+
+                        <button type="submit" class="btn btn-primary">
+                            Cadastrar
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    URBAN<span>STORE</span>
+                </a>
+
+                <p>
+                    Moda, estilo e personalidade
+                    para você.
+                </p>
+
+                <div class="socials">
+
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">TikTok</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Loja</h3>
+
+                <a href="produtos.html">Produtos</a>
+                <a href="produtos.html?categoria=camisetas">Camisetas</a>
+                <a href="produtos.html?categoria=calcas">Calças</a>
+                <a href="produtos.html?categoria=tenis">Tênis</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Atendimento</h3>
+
+                <a href="#">Central de ajuda</a>
+                <a href="#">Trocas e devoluções</a>
+                <a href="#">Política de entrega</a>
+                <a href="#">Contato</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>Minha conta</h3>
+
+                <a href="login.html">Entrar</a>
+                <a href="cadastro.html">Criar conta</a>
+                <a href="pedidos.html">Meus pedidos</a>
+                <a href="carrinho.html">Meu carrinho</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <p>
+                    © 2026 Urban Store. Todos os direitos reservados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

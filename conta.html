@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Minha Conta | Urban Store</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="container header-content">
+
+            <a href="index.html" class="logo">
+                URBAN<span>STORE</span>
+            </a>
+
+
+            <nav class="nav" id="nav">
+
+                <a href="index.html">
+                    Início
+                </a>
+
+                <a href="produtos.html">
+                    Produtos
+                </a>
+
+                <a href="produtos.html">
+                    Categorias
+                </a>
+
+                <a href="produtos.html">
+                    Ofertas
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <a
+                    href="conta.html"
+                    class="header-icon">
+
+                    <i class="fa-regular fa-user"></i>
+
+                </a>
+
+
+                <a
+                    href="carrinho.html"
+                    class="header-icon cart-icon">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span id="cart-count">
+                        0
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="menu-button"
+                    id="menu-button">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTA -->
+
+    <main class="account-page">
+
+        <div class="container">
+
+            <div class="account-title">
+
+                <span>
+                    MINHA CONTA
+                </span>
+
+                <h1>
+                    Olá, <strong id="account-name">
+                        Cliente
+                    </strong>
+                </h1>
+
+                <p>
+                    Gerencie sua conta e acompanhe seus pedidos.
+                </p>
+
+            </div>
+
+
+            <div class="account-grid">
+
+
+                <!-- PERFIL -->
+
+                <div class="account-card">
+
+                    <div class="account-card-icon">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+
+                    <h2>
+                        Meu perfil
+                    </h2>
+
+                    <p>
+                        Consulte seus dados pessoais.
+                    </p>
+
+                    <div class="account-user-info">
+
+                        <div>
+                            <span>Nome</span>
+                            <strong id="profile-name">
+                                —
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>E-mail</span>
+                            <strong id="profile-email">
+                                —
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PEDIDOS -->
+
+                <a
+                    href="pedidos.html"
+                    class="account-card account-link">
+
+                    <div class="account-card-icon">
+                        <i class="fa-solid fa-box"></i>
+                    </div>
+
+                    <h2>
+                        Meus pedidos
+                    </h2>
+
+                    <p>
+                        Consulte seus pedidos e acompanhe suas compras.
+                    </p>
+
+                    <span class="account-card-link">
+                        Ver pedidos
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </a>
+
+
+                <!-- COMPRAS -->
+
+                <a
+                    href="produtos.html"
+                    class="account-card account-link">
+
+                    <div class="account-card-icon">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                    </div>
+
+                    <h2>
+                        Continuar comprando
+                    </h2>
+
+                    <p>
+                        Confira nossos produtos e encontre seu próximo estilo.
+                    </p>
+
+                    <span class="account-card-link">
+                        Ver produtos
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <div class="account-card logout-card">
+
+                    <div class="account-card-icon">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </div>
+
+                    <h2>
+                        Sair da conta
+                    </h2>
+
+                    <p>
+                        Encerre sua sessão neste dispositivo.
+                    </p>
+
+                    <button
+                        id="logout-button"
+                        class="btn btn-outline">
+
+                        Sair da conta
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <a
+                        href="index.html"
+                        class="logo">
+
+                        URBAN<span>STORE</span>
+
+                    </a>
+
+                    <p>
+                        Seu estilo. Sua identidade.
+                    </p>
+
+                </div>
+
+
+                <div class="footer-links">
+
+                    <a href="produtos.html">
+                        Produtos
+                    </a>
+
+                    <a href="pedidos.html">
+                        Meus pedidos
+                    </a>
+
+                    <a href="conta.html">
+                        Minha conta
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Urban Store. Todos os direitos reservados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
