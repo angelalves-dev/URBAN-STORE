@@ -14,7 +14,7 @@ const defaultProducts = [
         name: "Camiseta Basic Black",
         price: 79.90,
         category: "camisetas",
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80",
+        image: "img/camiseta-basic-black.jpg",
         description: "Camiseta preta básica com visual moderno.",
         stock: 10
     },
@@ -24,7 +24,7 @@ const defaultProducts = [
         name: "Camiseta Urban White",
         price: 79.90,
         category: "camisetas",
-        image: "https://images.unsplash.com/photo-1583743814966-8936f37f384f?auto=format&fit=crop&w=600&q=80",
+        image: "img/camiseta-urban-white.jpg",
         description: "Camiseta branca minimalista para qualquer ocasião.",
         stock: 10
     },
@@ -34,7 +34,7 @@ const defaultProducts = [
         name: "Camiseta Oversized Gray",
         price: 99.90,
         category: "camisetas",
-        image: "https://images.unsplash.com/photo-1622445275576-721325763afe?auto=format&fit=crop&w=600&q=80",
+        image: "img/camiseta-oversized-gray.jpg",
         description: "Camiseta oversized cinza com estilo urbano.",
         stock: 10
     },
@@ -44,7 +44,7 @@ const defaultProducts = [
         name: "Calça Jeans Classic",
         price: 159.90,
         category: "calcas",
-        image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=600&q=80",
+        image: "img/calca-jeans-classic.jpg",
         description: "Calça jeans clássica com corte moderno.",
         stock: 10
     },
@@ -54,7 +54,7 @@ const defaultProducts = [
         name: "Calça Cargo Urban",
         price: 179.90,
         category: "calcas",
-        image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80",
+        image: "img/calca-cargo-urban.jpg",
         description: "Calça cargo inspirada no streetwear.",
         stock: 10
     },
@@ -64,7 +64,7 @@ const defaultProducts = [
         name: "Calça Jogger Black",
         price: 149.90,
         category: "calcas",
-        image: "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=600&q=80",
+        image: "img/calca-jogger-black.jpg",
         description: "Calça jogger preta confortável e versátil.",
         stock: 10
     },
@@ -74,7 +74,7 @@ const defaultProducts = [
         name: "Urban Runner",
         price: 299.90,
         category: "tenis",
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80",
+        image: "img/urban-runner.jpg",
         description: "Tênis esportivo com design urbano.",
         stock: 10
     },
@@ -84,7 +84,7 @@ const defaultProducts = [
         name: "Street Classic",
         price: 279.90,
         category: "tenis",
-        image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80",
+        image: "img/street-classic.jpg",
         description: "Tênis clássico para composições urbanas.",
         stock: 10
     },
@@ -94,7 +94,7 @@ const defaultProducts = [
         name: "Sport Motion",
         price: 349.90,
         category: "tenis",
-        image: "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?auto=format&fit=crop&w=600&q=80",
+        image: "img/sport-motion.jpg",
         description: "Tênis esportivo de alta performance.",
         stock: 10
     },
@@ -104,7 +104,7 @@ const defaultProducts = [
         name: "Boné Urban",
         price: 69.90,
         category: "acessorios",
-        image: "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=600&q=80",
+        image: "img/bone-urban.jpg",
         description: "Boné urbano com design minimalista.",
         stock: 10
     },
@@ -114,7 +114,7 @@ const defaultProducts = [
         name: "Mochila Street",
         price: 129.90,
         category: "acessorios",
-        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80",
+        image: "img/mochila-street.jpg",
         description: "Mochila prática para rotina e viagens.",
         stock: 10
     },
@@ -124,7 +124,7 @@ const defaultProducts = [
         name: "Relógio Classic",
         price: 199.90,
         category: "acessorios",
-        image: "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=600&q=80",
+        image: "img/relogio-classic.jpg",
         description: "Relógio clássico com acabamento moderno.",
         stock: 10
     }
