@@ -1,5 +1,6 @@
 /* =========================================================
    URBAN STORE - SCRIPT FINAL
+   IMAGENS LOCAIS
 ========================================================= */
 
 
@@ -744,6 +745,7 @@ function initProductsPage() {
                                 <img
                                     src="${product.image}"
                                     alt="${product.name}"
+                                    onerror="this.onerror=null;this.src='img/produto.jpg';"
                                 >
 
                             </div>
@@ -934,7 +936,6 @@ function initProductsPage() {
 
 function initProductPage() {
 
-    // Aceita os dois IDs para evitar erro
     const productContainer =
         document.getElementById("product-details") ||
         document.getElementById("product-page");
@@ -1008,7 +1009,7 @@ function initProductPage() {
                 <img
                     src="${product.image}"
                     alt="${product.name}"
-                    onerror="this.src='img/produto.jpg'"
+                    onerror="this.onerror=null;this.src='img/produto.jpg'"
                 >
 
             </div>
@@ -1060,7 +1061,6 @@ function initProductPage() {
                             Adicionar ao carrinho
 
                             <i class="fa-solid fa-bag-shopping"></i>
-
                         </button>
                     `
                 }
@@ -1186,6 +1186,7 @@ function initCartPage() {
                             <img
                                 src="${product.image}"
                                 alt="${product.name}"
+                                onerror="this.onerror=null;this.src='img/produto.jpg';"
                             >
 
                         </div>
@@ -1751,23 +1752,14 @@ function initAccount() {
    PEDIDOS
 ========================================================= */
 
-/* =========================================================
-   PEDIDOS - VERSÃO CORRIGIDA
-========================================================= */
-
 function initOrders() {
 
     const ordersContainer =
         document.getElementById("orders-list");
 
     if (!ordersContainer) {
-        console.log("Elemento orders-list não encontrado.");
         return;
     }
-
-    /* =====================================================
-       PEGAR PEDIDOS
-    ===================================================== */
 
     let orders = [];
 
@@ -1778,21 +1770,12 @@ function initOrders() {
                 localStorage.getItem("urbanOrders")
             ) || [];
 
-    } catch (error) {
-
-        console.error(
-            "Erro ao ler urbanOrders:",
-            error
-        );
+    } catch {
 
         orders = [];
 
     }
 
-
-    /* =====================================================
-       PEGAR USUÁRIO LOGADO
-    ===================================================== */
 
     let user = null;
 
@@ -1803,30 +1786,12 @@ function initOrders() {
                 localStorage.getItem("urbanUser")
             );
 
-    } catch (error) {
+    } catch {
 
-        console.error(
-            "Erro ao ler urbanUser:",
-            error
-        );
+        user = null;
 
     }
 
-
-    console.log(
-        "TODOS OS PEDIDOS:",
-        orders
-    );
-
-    console.log(
-        "USUÁRIO:",
-        user
-    );
-
-
-    /* =====================================================
-       SE NÃO ESTIVER LOGADO
-    ===================================================== */
 
     if (!user) {
 
@@ -1860,10 +1825,6 @@ function initOrders() {
     }
 
 
-    /* =====================================================
-       DADOS DO USUÁRIO
-    ===================================================== */
-
     const userName =
         String(
             user.name ||
@@ -1883,10 +1844,6 @@ function initOrders() {
         .trim()
         .toLowerCase();
 
-
-    /* =====================================================
-       FILTRAR PEDIDOS DO USUÁRIO
-    ===================================================== */
 
     const myOrders =
         orders.filter(order => {
@@ -1933,16 +1890,6 @@ function initOrders() {
         });
 
 
-    console.log(
-        "PEDIDOS DO USUÁRIO:",
-        myOrders
-    );
-
-
-    /* =====================================================
-       NENHUM PEDIDO
-    ===================================================== */
-
     if (!myOrders.length) {
 
         ordersContainer.innerHTML = `
@@ -1975,10 +1922,6 @@ function initOrders() {
     }
 
 
-    /* =====================================================
-       RENDERIZAR PEDIDOS
-    ===================================================== */
-
     let html = "";
 
 
@@ -1986,11 +1929,6 @@ function initOrders() {
         .slice()
         .reverse()
         .forEach(order => {
-
-
-            /* =================================================
-               ACEITAR PEDIDOS ANTIGOS E NOVOS
-            ================================================= */
 
             const orderProducts =
                 Array.isArray(order.products)
@@ -2016,45 +1954,11 @@ function initOrders() {
             let productsHTML = "";
 
 
-            /* =================================================
-               PRODUTOS DO PEDIDO
-            ================================================= */
-
             orderProducts.forEach(item => {
-
-
-                /*
-                 * IMPORTANTE:
-                 *
-                 * Alguns pedidos antigos possuem somente:
-                 *
-                 * {
-                 *   id: 1,
-                 *   quantity: 1
-                 * }
-                 *
-                 * Então buscamos o produto pelo ID
-                 * no catálogo atual.
-                 */
 
                 const catalogProduct =
                     getProductById(item.id);
 
-
-                console.log(
-                    "ITEM DO PEDIDO:",
-                    item
-                );
-
-                console.log(
-                    "PRODUTO ENCONTRADO NO CATÁLOGO:",
-                    catalogProduct
-                );
-
-
-                /* =================================================
-                   DADOS DO PRODUTO
-                ================================================= */
 
                 const productName =
                     item.name ||
@@ -2084,10 +1988,6 @@ function initOrders() {
                     productPrice *
                     quantity;
 
-
-                /* =================================================
-                   HTML DO PRODUTO
-                ================================================= */
 
                 productsHTML += `
 
@@ -2151,10 +2051,6 @@ function initOrders() {
             });
 
 
-            /* =================================================
-               TOTAL DE ITENS
-            ================================================= */
-
             const totalItems =
                 orderProducts.reduce(
                     (sum, product) => {
@@ -2173,16 +2069,9 @@ function initOrders() {
                 );
 
 
-            /* =================================================
-               HTML DO PEDIDO
-            ================================================= */
-
             html += `
 
                 <article class="order-card">
-
-
-                    <!-- CABEÇALHO -->
 
                     <div class="order-header">
 
@@ -2211,8 +2100,6 @@ function initOrders() {
                     </div>
 
 
-                    <!-- DATA -->
-
                     <div class="order-date">
 
                         <i
@@ -2224,8 +2111,6 @@ function initOrders() {
                     </div>
 
 
-                    <!-- PRODUTOS -->
-
                     <div class="order-products">
 
                         ${productsHTML}
@@ -2233,10 +2118,7 @@ function initOrders() {
                     </div>
 
 
-                    <!-- RESUMO -->
-
                     <div class="order-summary">
-
 
                         <div>
 
@@ -2301,9 +2183,7 @@ function initOrders() {
 
                         </div>
 
-
                     </div>
-
 
                 </article>
 
@@ -2312,17 +2192,8 @@ function initOrders() {
         });
 
 
-    /* =====================================================
-       COLOCAR NA TELA
-    ===================================================== */
-
     ordersContainer.innerHTML =
         html;
-
-
-    console.log(
-        "PEDIDOS RENDERIZADOS COM SUCESSO."
-    );
 
 }
 
@@ -2546,6 +2417,7 @@ function initCheckout() {
                             <img
                                 src="${product.image}"
                                 alt="${product.name}"
+                                onerror="this.onerror=null;this.src='img/produto.jpg';"
                             >
 
                         </div>
@@ -2725,8 +2597,6 @@ function initCheckout() {
         }
 
 
-        /* CARTÃO */
-
         if (
             selected.value === "card"
         ) {
@@ -2897,8 +2767,6 @@ function initCheckout() {
         }
 
 
-        /* PIX */
-
         if (
             selected.value === "pix"
         ) {
@@ -2944,8 +2812,6 @@ function initCheckout() {
 
         }
 
-
-        /* BOLETO */
 
         if (
             selected.value === "boleto"
@@ -3000,7 +2866,7 @@ function initCheckout() {
 
 
     /* =====================================================
-       FINALIZAR
+       FINALIZAR PEDIDO
     ===================================================== */
 
     if (finishButton) {
@@ -3163,8 +3029,6 @@ function initCheckout() {
                 }
 
 
-                /* VALIDAÇÃO DO CARTÃO */
-
                 if (
                     payment.value ===
                     "card"
@@ -3252,8 +3116,6 @@ function initCheckout() {
                 }
 
 
-                /* VERIFICAR ESTOQUE */
-
                 const products =
                     getProducts();
 
@@ -3297,14 +3159,10 @@ function initCheckout() {
                 }
 
 
-                /* DIMINUIR ESTOQUE */
-
                 decreaseStockForCart(
                     cart
                 );
 
-
-                /* PEDIDO */
 
                 let orders = [];
 
@@ -3430,8 +3288,6 @@ function initCheckout() {
                     )
                 );
 
-
-                /* LIMPAR CARRINHO */
 
                 localStorage.removeItem(
                     "urbanCart"
